@@ -8,7 +8,6 @@ public class SpringbootTaskApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootTaskApplication.class, args);
-		int a = 0;
 	}
 
 }
