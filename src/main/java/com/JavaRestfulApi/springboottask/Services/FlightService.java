@@ -1,15 +1,19 @@
 package com.JavaRestfulApi.springboottask.Services;
 
 import com.JavaRestfulApi.springboottask.DTO.FlightDTO;
+import com.JavaRestfulApi.springboottask.DTO.SearchFlightDTO;
 import com.JavaRestfulApi.springboottask.Model.Airport;
 import com.JavaRestfulApi.springboottask.Model.Flight;
 import com.JavaRestfulApi.springboottask.Repository.FlightRepository;
 import org.mapstruct.ap.shaded.freemarker.template.SimpleDate;
+import org.springframework.cglib.core.Local;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 
 @Service
@@ -70,10 +74,6 @@ public class FlightService {
         return flightRepository.findById(id);
     }
 
-    // UPDATE
-    public Flight updateFlight(Integer id, Flight updatedFlight) {
-        return null;
-    }
 
     // DELETE
     public void deleteFlight(Integer id) {
@@ -100,6 +100,31 @@ public class FlightService {
     }
 
 
+    public List<SearchFlightDTO> searchFlights(String departure, String arrival, LocalDateTime departureDate) {
+
+        List<SearchFlightDTO> flightDTOS = new ArrayList<>();
+
+        List<Flight> flights = flightRepository.findByDepartureAirportAndArrivalAirportAndDepartureDateTime(departure, arrival, departureDate);
+        List<Flight> returnFlights = flightRepository.findByDepartureAirportAndArrivalAirportAndReturnDateTime(arrival, departure, departureDate);
+
+        for (Flight flight : flights) {
+            flightDTOS.add(new SearchFlightDTO(
+                    flight.getDepartureAirport(),
+                    flight.getArrivalAirport(),
+                    flight.getDepartureDateTime(),
+                    flight.getPrice()
+            ));
+        }
+        for (Flight flight : returnFlights) {
+            flightDTOS.add(new SearchFlightDTO(
+                    flight.getArrivalAirport(),
+                    flight.getDepartureAirport(),
+                    flight.getReturnDateTime(),
+                    flight.getPrice()
+            ));
+        }
+        return flightDTOS;
+    }
 
 
 }

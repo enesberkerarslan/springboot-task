@@ -3,6 +3,7 @@ package com.JavaRestfulApi.springboottask.Model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Setter
@@ -19,8 +20,10 @@ public class Flight {
 
     private String departureAirport;
     private String arrivalAirport;
-    private Date departureDateTime;
-    private Date returnDateTime;
+
+
+    private LocalDateTime departureDateTime;
+    private LocalDateTime returnDateTime;
     private Double price;
 
 

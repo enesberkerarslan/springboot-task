@@ -34,13 +34,15 @@ public class AirportService {
             if (airportDto.getAirportId() == null) {
                 airportRepository.save(new Airport(
                         null,
-                        airportDto.getAirportName()
+                        airportDto.getCity(),
+                        airportDto.getAirPortCode()
+
                 ));
                 return new ResponseEntity<String>("Create succesfuly", HttpStatus.CREATED);
 
             } else {
                 Airport airPort = airportRepository.findById(airportDto.getAirportId()).orElseThrow();
-                airPort.setCity(airportDto.getAirportName());
+                airPort.setCity(airportDto.getCity());
                 airportRepository.save(airPort);
                 return new ResponseEntity<String>("Update succesfuly", HttpStatus.CREATED);
             }
@@ -62,8 +64,8 @@ public class AirportService {
     }
 
     // UPDATE
-    public void updateAirport(Integer airportId, String newCity) {
-        int updatedRows = airportRepository.updateCityByAirportId(newCity, airportId);
+    public void updateAirport(Integer airportId, String newCity,String airportCode) {
+        int updatedRows = airportRepository.updateCityByAirportId(newCity,airportCode, airportId);
 
         if (updatedRows > 0) {
             System.out.println("Airport updated successfully");

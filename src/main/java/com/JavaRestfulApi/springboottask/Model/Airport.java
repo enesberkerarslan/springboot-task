@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 
 
 @Setter
@@ -22,6 +23,7 @@ public class Airport {
     private Integer airPortId;
 
     private String city;
+    private String airPortCode;
 
 
 

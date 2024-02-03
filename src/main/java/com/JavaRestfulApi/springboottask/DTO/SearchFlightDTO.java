@@ -5,19 +5,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class FlightDTO {
-
-    private Integer flightId;
+public class SearchFlightDTO {
     private String departureAirport;
     private String arrivalAirport;
     private LocalDateTime departureDateTime;
-    private LocalDateTime returnDateTime;
     private Double price;
-
-
 }

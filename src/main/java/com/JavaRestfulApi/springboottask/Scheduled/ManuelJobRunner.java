@@ -14,8 +14,8 @@ public class ManuelJobRunner {
         this.scheduledJob = scheduledJob;
     }
 
-    @PostConstruct
-    public void runJobManually() {
-        scheduledJob.fetchAndSaveFlights();
-    }
+    //@PostConstruct
+    //public void runJobManually() {
+    //    scheduledJob.fetchAndSaveFlights();
+    //}
 }

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/api/v1/airport")
+@RequestMapping(path = "/api/airport")
 public class AirportController {
 
     private final AirportService airportService;
