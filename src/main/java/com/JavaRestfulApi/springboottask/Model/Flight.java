@@ -1,9 +1,7 @@
 package com.JavaRestfulApi.springboottask.Model;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 
@@ -11,6 +9,8 @@ import java.util.Date;
 @Getter
 @Entity(name = "Flight")
 @Table
+@AllArgsConstructor
+@NoArgsConstructor
 public class Flight {
 
     @Id

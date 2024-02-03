@@ -11,6 +11,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class FlightDTO {
 
+    private Integer flightId;
     private String departureAirport;
     private String arrivalAirport;
     private Date departureDateTime;
