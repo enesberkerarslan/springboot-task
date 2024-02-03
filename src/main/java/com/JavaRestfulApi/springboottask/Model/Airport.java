@@ -2,7 +2,9 @@ package com.JavaRestfulApi.springboottask.Model;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
@@ -11,6 +13,8 @@ import lombok.Setter;
 @Getter
 @Entity(name = "Airport")
 @Table
+@AllArgsConstructor
+@NoArgsConstructor
 public class Airport {
 
     @Id
@@ -19,13 +23,6 @@ public class Airport {
 
     private String city;
 
-    public Airport(Integer airPortId, String city) {
-        this.airPortId = airPortId;
-        this.city = city;
-    }
 
-    public Airport() {
-
-    }
 
 }

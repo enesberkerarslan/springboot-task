@@ -1,7 +1,11 @@
 package com.JavaRestfulApi.springboottask.Services;
 
+import com.JavaRestfulApi.springboottask.DTO.AirportDTO;
 import com.JavaRestfulApi.springboottask.Model.Airport;
 import com.JavaRestfulApi.springboottask.Repository.AirportRepository;
+import org.apache.coyote.Response;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -25,8 +29,27 @@ public class AirportService {
 
 
     // CREATE
-    public Airport createAirport(Airport airport) {
-        return airportRepository.save(airport);
+    public ResponseEntity<String> createOrUpdateAirport(AirportDTO airportDto) {
+        try {
+            if (airportDto.getAirportId() == null) {
+                airportRepository.save(new Airport(
+                        null,
+                        airportDto.getAirportName()
+                ));
+                return new ResponseEntity<String>("Create succesfuly", HttpStatus.CREATED);
+
+            } else {
+                Airport airPort = airportRepository.findById(airportDto.getAirportId()).orElseThrow();
+                airPort.setCity(airportDto.getAirportName());
+                airportRepository.save(airPort);
+                return new ResponseEntity<String>("Update succesfuly", HttpStatus.CREATED);
+            }
+        }
+        catch(Exception e)
+        {
+            return new ResponseEntity<String>(e.getMessage(), HttpStatus.EXPECTATION_FAILED);
+
+        }
     }
 
     // READ
@@ -39,17 +62,17 @@ public class AirportService {
     }
 
     // UPDATE
-    public Airport updateAirport(Integer id, Airport updatedAirport) {
-        Optional<Airport> optionalAirport = airportRepository.findById(id);
+    public void updateAirport(Integer airportId, String newCity) {
+        int updatedRows = airportRepository.updateCityByAirportId(newCity, airportId);
 
-        if (optionalAirport.isPresent()) {
-            Airport existingAirport = optionalAirport.get();
-            existingAirport.setCity(updatedAirport.getCity());
-            return airportRepository.save(existingAirport);
+        if (updatedRows > 0) {
+            System.out.println("Airport updated successfully");
         } else {
-            return null;
+            System.out.println("Airport update failed");
         }
     }
+
+
 
     // DELETE
     public void deleteAirport(Integer id) {

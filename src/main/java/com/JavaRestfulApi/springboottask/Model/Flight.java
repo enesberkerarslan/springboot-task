@@ -23,16 +23,5 @@ public class Flight {
     private Date returnDateTime;
     private Double price;
 
-    public Flight(Integer flightId, String departureAirport, String arrivalAirport, Date departureDateTime, Date returnDateTime, Double price) {
-        this.flightId = flightId;
-        this.departureAirport = departureAirport;
-        this.arrivalAirport = arrivalAirport;
-        this.departureDateTime = departureDateTime;
-        this.returnDateTime = returnDateTime;
-        this.price = price;
-    }
 
-    public Flight() {
-
-    }
 }
