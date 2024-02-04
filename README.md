@@ -27,10 +27,9 @@ Flight Management REST API project that includes input validation, synchronized 
 - **List all airplanes**
 - **Filtering airplanes by airplane and airline codes**
 
-### AIRLINE
+### SEARCH
 
-- **List all airlines**
-- **Filtering airlines by airline code**
+- **Search all flight a to b**
 
 ## Technologies Used
 
