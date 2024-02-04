@@ -19,13 +19,11 @@ Flight Management REST API project that includes input validation, synchronized 
 
 ### AIRPORT
 
-- **Filtering airports by airport code**
 - **List all airports**
 
-### AIRPLANE
+### FLIGHT
 
-- **List all airplanes**
-- **Filtering airplanes by airplane and airline codes**
+- **List all flight**
 
 ### SEARCH
 
