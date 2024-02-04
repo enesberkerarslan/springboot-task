@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SearchFlightDTO {
-    private String departureAirport;
-    private String arrivalAirport;
+    private String departureAirportCode;
+    private String arrivalAirportCode;
     private LocalDateTime departureDateTime;
     private Double price;
 }

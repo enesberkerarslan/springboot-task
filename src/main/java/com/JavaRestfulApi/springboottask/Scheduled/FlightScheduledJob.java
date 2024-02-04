@@ -23,7 +23,7 @@ import java.util.List;
 public class FlightScheduledJob {
 
     private final FlightRepository flightRepository;
-    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
 
     @Autowired
@@ -46,9 +46,9 @@ public class FlightScheduledJob {
 
     public List<Flight> getFlightsFromMockApi() {
         return Arrays.asList(
-                new Flight(null, "Istanbul", "Ankara", parseDate("2024-02-05 12:00:00"), parseDate("2024-02-05 14:00:00"), 500.00),
-                new Flight(null, "Istanbul", "Izmir", parseDate("2024-02-06 09:30:00"), parseDate("2024-02-06 11:30:00"), 600.00),
-                new Flight(null, "Ankara", "Izmir", parseDate("2024-02-07 15:45:00"), parseDate("2024-02-07 17:45:00"), 550.00)
+                new Flight(null, "Istanbul Havaalanı", "Ankara Havaalanı", parseDate("2024-02-05 12:00"), parseDate("2024-02-05 14:00"), 500.00),
+                new Flight(null, "Istanbul Havaalanı", "Izmir Havaalanı", parseDate("2024-02-06 09:30"), parseDate("2024-02-06 11:30"), 600.00),
+                new Flight(null, "Ankara Havaalanı", "Izmir Havaalanı", parseDate("2024-02-07 15:45"), parseDate("2024-02-07 17:45"), 550.00)
         );
     }
 

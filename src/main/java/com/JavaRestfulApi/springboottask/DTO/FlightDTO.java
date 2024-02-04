@@ -13,8 +13,8 @@ import java.util.Date;
 public class FlightDTO {
 
     private Integer flightId;
-    private String departureAirport;
-    private String arrivalAirport;
+    private String departureAirportCode;
+    private String arrivalAirportCode;
     private LocalDateTime departureDateTime;
     private LocalDateTime returnDateTime;
     private Double price;

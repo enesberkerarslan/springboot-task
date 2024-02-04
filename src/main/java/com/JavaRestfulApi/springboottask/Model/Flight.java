@@ -18,12 +18,15 @@ public class Flight {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer flightId;
 
-    private String departureAirport;
-    private String arrivalAirport;
+    @Column(name = "departure_airport_code")
+    private String departureAirportCode;
 
+    @Column(name = "arrival_airport_code")
+    private String arrivalAirportCode;
 
     private LocalDateTime departureDateTime;
     private LocalDateTime returnDateTime;
+
     private Double price;
 
 

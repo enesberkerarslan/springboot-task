@@ -30,13 +30,12 @@ public class FlightController {
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<String> createOrUpdateAirport(@RequestBody FlightDTO flightDTO) {
 
-        return flightService.createOrUpdateAirport(flightDTO);
+        return flightService.createOrUpdateFlight(flightDTO);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteFlight(@PathVariable Integer id) {
-        flightService.deleteFlight(id);
-        return new ResponseEntity<>("Flight with ID " + id + " has been deleted.", HttpStatus.OK);
+        return flightService.deleteFlight(id);
     }
 
 
